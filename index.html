@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance Beauty Parlour</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/9948318650?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-palette"></i>
+    </div>
+
+    <!-- Theme Selector Modal -->
+    <div class="theme-modal" id="themeModal">
+        <div class="theme-modal-content">
+            <h3>Choose Your Theme</h3>
+            <div class="theme-options">
+                <button class="theme-option active" data-theme="default">
+                    <div class="theme-preview default-preview"></div>
+                    <span>Classic Gold</span>
+                </button>
+                <button class="theme-option" data-theme="rose">
+                    <div class="theme-preview rose-preview"></div>
+                    <span>Rose Pink</span>
+                </button>
+                <button class="theme-option" data-theme="lavender">
+                    <div class="theme-preview lavender-preview"></div>
+                    <span>Lavender Dream</span>
+                </button>
+                <button class="theme-option" data-theme="mint">
+                    <div class="theme-preview mint-preview"></div>
+                    <span>Mint Fresh</span>
+                </button>
+                <button class="theme-option" data-theme="dark">
+                    <div class="theme-preview dark-preview"></div>
+                    <span>Dark Elegance</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated Background Vectors -->
+    <div class="bg-vectors">
+        <svg class="vector vector-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,79.6,-45.8C87.4,-32.6,90,-16.3,88.5,-0.9C87,14.6,81.4,29.2,73.1,42.8C64.8,56.4,53.8,69,40.1,76.8C26.4,84.6,10,87.6,-5.8,87.1C-21.6,86.6,-36.8,82.6,-50.2,74.9C-63.6,67.2,-75.2,55.8,-82.4,42.1C-89.6,28.4,-92.4,12.4,-90.8,-3.1C-89.2,-18.6,-83.2,-33.6,-74.4,-47.2C-65.6,-60.8,-54,-73,-40.8,-79.9C-27.6,-86.8,-13.8,-88.4,0.5,-89.3C14.8,-90.2,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100)" />
+        </svg>
+        <svg class="vector vector-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M39.5,-65.5C51.4,-58.5,61.3,-47.6,68.1,-35.2C74.9,-22.8,78.6,-8.9,77.8,4.7C77,18.3,71.7,31.6,63.5,43.2C55.3,54.8,44.2,64.7,31.4,70.8C18.6,76.9,4.1,79.2,-10.3,77.8C-24.7,76.4,-39,71.3,-51.8,63.5C-64.6,55.7,-76,45.2,-82.3,32.2C-88.6,19.2,-89.8,3.7,-86.5,-10.5C-83.2,-24.7,-75.4,-37.6,-65.1,-48.8C-54.8,-60,-41.9,-69.5,-28.4,-75.8C-14.9,-82.1,-0.8,-85.2,12.3,-82.4C25.4,-79.6,27.6,-72.5,39.5,-65.5Z" transform="translate(100 100)" />
+        </svg>
+        <svg class="vector vector-3" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M47.3,-78.7C61.1,-71.4,72.1,-58.3,78.8,-43.5C85.5,-28.7,87.9,-12.2,86.3,3.7C84.7,19.6,79.1,34.9,70.3,48.2C61.5,61.5,49.5,72.8,35.8,78.9C22.1,85,6.7,85.9,-8.9,84.3C-24.5,82.7,-40.3,78.6,-54.2,71.2C-68.1,63.8,-80.1,53.1,-86.4,39.8C-92.7,26.5,-93.3,10.6,-89.9,-4.2C-86.5,-19,-79.1,-32.7,-69.8,-44.8C-60.5,-56.9,-49.3,-67.4,-36.4,-75.3C-23.5,-83.2,-9,-88.5,5.3,-87.8C19.6,-87.1,33.5,-86,47.3,-78.7Z" transform="translate(100 100)" />
+        </svg>
+        <svg class="vector vector-4" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M41.2,-71.3C53.5,-64.2,63.5,-54.1,70.4,-42.3C77.3,-30.5,81.1,-17,81.5,-3.7C81.9,9.6,79,22.7,73.1,35.2C67.2,47.7,58.3,59.6,46.8,67.8C35.3,76,21.2,80.5,6.8,81.2C-7.6,81.9,-22.3,78.8,-35.8,72.4C-49.3,66,-61.6,56.3,-70.2,44.2C-78.8,32.1,-83.7,17.6,-83.9,3C-84.1,-11.6,-79.6,-26.3,-71.8,-39.2C-64,-52.1,-52.9,-63.2,-40.1,-69.9C-27.3,-76.6,-13.7,-78.9,0.3,-79.5C14.3,-80.1,28.9,-78.4,41.2,-71.3Z" transform="translate(100 100)" />
+        </svg>
+    </div>
+
+    <!-- Promo Banner -->
+    <div class="promo-banner" id="promoBanner"></div>
+        <div class="promo-content">
+            <i class="fas fa-gift"></i>
+            <span><strong>Special Offer:</strong> Get 20% OFF on all bridal packages this month! Use code: BRIDE2024</span>
+        </div>
+        <button class="promo-close" id="promoClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-spa"></i>
+                <span>Elegance</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#packages" class="nav-link">Packages</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1920&h=1080&fit=crop');"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=1920&h=1080&fit=crop');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="slider-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+            <span class="indicator" data-slide="4"></span>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-in">
+                <i class="fas fa-star"></i>
+                <span>Rated #1 Beauty Salon in Town</span>
+            </div>
+            <h1 class="hero-title animate-fade-in">
+                Discover Your <span class="highlight">Natural Beauty</span>
+            </h1>
+            <p class="hero-subtitle animate-fade-in-delay">Experience luxury beauty treatments in a serene, welcoming environment where your comfort and satisfaction are our top priorities</p>
+            <div class="hero-buttons animate-fade-in-delay-2">
+                <a href="#contact" class="btn btn-primary btn-large">
+                    <i class="fas fa-calendar-check"></i>
+                    Book Appointment
+                </a>
+                <a href="#services" class="btn btn-secondary btn-large">
+                    <i class="fas fa-spa"></i>
+                    View Services
+                </a>
+            </div>
+        </div>
+            <div class="hero-features animate-fade-in-delay-3">
+                <div class="hero-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Certified Professionals</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Premium Products</span>
+                </div>
+                <div class="hero-feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>15,000+ Happy Clients</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Us</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Where elegance meets expertise in every service we provide</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop" alt="Beauty Salon Interior">
+                </div>
+                <div class="about-text">
+                    <h3>Your Beauty, Our Passion</h3>
+                    <p>Welcome to Elegance Beauty Parlour, your premier destination for luxury beauty treatments and personalized care. Established in 2014, we've been transforming lives through the art of beauty for over a decade. Our state-of-the-art facility combines modern aesthetics with a warm, welcoming atmosphere designed to make you feel pampered from the moment you walk through our doors.</p>
+                    <p>Our team of highly trained and certified beauty professionals brings years of expertise and a genuine passion for helping you look and feel your absolute best. We stay ahead of industry trends, continuously updating our skills and techniques to offer you the latest innovations in beauty care. From traditional treatments to cutting-edge procedures, we use only premium, dermatologically-tested products that are gentle on your skin and deliver exceptional results.</p>
+                    <p>At Elegance, we believe that true beauty comes from confidence. That's why we take the time to understand your unique needs, preferences, and lifestyle to create customized beauty solutions that enhance your natural features and reflect your personal style.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-award"></i>
+                            <span>Certified Experts</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Natural Products</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Flexible Hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="15000">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number" data-target="10">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Awards Won</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stat-number" data-target="30">0</div>
+                    <div class="stat-label">Expert Staff</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose" class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Elegance?</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Discover what makes us the preferred choice for beauty and wellness</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-number">01</div>
+                    <h3>Expert Professionals</h3>
+                    <p>Our team consists of certified beauty experts with years of experience and ongoing training in the latest techniques and trends. Each specialist is passionate about their craft and dedicated to delivering exceptional results.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">02</div>
+                    <h3>Premium Products</h3>
+                    <p>We exclusively use high-quality, dermatologically-tested products from renowned international brands. Your safety and satisfaction are paramount, which is why we never compromise on product quality.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">03</div>
+                    <h3>Hygiene Standards</h3>
+                    <p>We maintain the highest standards of cleanliness and hygiene. All tools are sterilized, and we follow strict sanitation protocols to ensure a safe and healthy environment for every client.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">04</div>
+                    <h3>Personalized Care</h3>
+                    <p>We believe every client is unique. Our consultations help us understand your specific needs, preferences, and concerns, allowing us to create customized treatment plans that deliver the best results for you.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">05</div>
+                    <h3>Relaxing Ambiance</h3>
+                    <p>Step into our tranquil oasis designed for your comfort and relaxation. From soothing music to aromatherapy, every detail is crafted to provide you with a peaceful escape from daily stress.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-number">06</div>
+                    <h3>Affordable Luxury</h3>
+                    <p>Experience premium beauty services at competitive prices. We offer various packages and seasonal promotions to make luxury beauty care accessible to everyone without compromising on quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Indulge in our comprehensive range of beauty treatments</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3>Hair Styling</h3>
+                    <p>Transform your look with our expert hair services. From precision cuts to vibrant colors, our stylists create stunning results tailored to your face shape, lifestyle, and personality.</p>
+                    <ul class="service-list">
+                        <li>Precision Haircut & Styling</li>
+                        <li>Professional Hair Coloring & Highlights</li>
+                        <li>Keratin & Deep Conditioning Treatments</li>
+                        <li>Hair Spa & Scalp Therapy</li>
+                        <li>Perming & Straightening</li>
+                    </ul>
+                    <p class="service-price">Starting from ₹2,500</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Facial Treatments</h3>
+                    <p>Experience the ultimate in skincare with our luxurious facial treatments. Using advanced techniques and premium products, we address all skin concerns for a radiant, youthful complexion.</p>
+                    <ul class="service-list">
+                        <li>Deep Cleansing & Purifying Facial</li>
+                        <li>Anti-Aging & Collagen Boost</li>
+                        <li>Hydration & Moisture Therapy</li>
+                        <li>Brightening & Pigmentation Treatment</li>
+                        <li>Acne Control & Oil Balance</li>
+                    </ul>
+                    <p class="service-price">Starting from ₹3,500</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>Manicure & Pedicure</h3>
+                    <p>Indulge in our signature nail care services. From classic elegance to trendy nail art, we provide meticulous attention to detail for perfectly polished hands and feet.</p>
+                    <ul class="service-list">
+                        <li>Classic & French Manicure</li>
+                        <li>Gel Polish & Long-Lasting Color</li>
+                        <li>Luxury Spa Pedicure with Massage</li>
+                        <li>Nail Art & Custom Designs</li>
+                        <li>Nail Extensions & Acrylic</li>
+                    </ul>
+                    <p class="service-price">Starting from ₹1,500</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Makeup Services</h3>
+                    <p>Look picture-perfect for every occasion with our professional makeup artistry. We use high-quality, long-lasting products to create flawless looks that enhance your natural beauty.</p>
+                    <ul class="service-list">
+                        <li>Bridal Makeup & Trial Session</li>
+                        <li>Party & Evening Makeup</li>
+                        <li>Natural & Everyday Look</li>
+                        <li>HD & Airbrush Makeup</li>
+                        <li>Special Occasion Styling</li>
+                    </ul>
+                    <p class="service-price">Starting from ₹3,000</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Skin Care & Hair Removal</h3>
+                    <p>Achieve smooth, flawless skin with our gentle and effective hair removal services. We use premium products and techniques for comfortable, long-lasting results.</p>
+                    <ul class="service-list">
+                        <li>Full Body Waxing (Hot & Cold)</li>
+                        <li>Precision Threading & Shaping</li>
+                        <li>Skin Brightening & Bleaching</li>
+                        <li>De-Tan Treatment</li>
+                        <li>Laser Hair Removal Consultation</li>
+                    </ul>
+                    <p class="service-price">Starting from ₹800</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-massage"></i>
+                    </div>
+                    <h3>Body Spa & Wellness</h3>
+                    <p>Escape into tranquility with our rejuvenating body treatments. Designed to relax, refresh, and revitalize, our spa services provide the ultimate self-care experience.</p>
+                    <ul class="service-list">
+                        <li>Aromatherapy & Swedish Massage</li>
+                        <li>Deep Tissue & Hot Stone Therapy</li>
+                        <li>Exfoliating Body Scrub</li>
+                        <li>Body Polishing & Glow Treatment</li>
+                        <li>Detox & Slimming Wraps</li>
+                    </ul>
+                    <p class="service-price">Starting from ₹4,500</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Special Packages</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Exclusive combination packages designed to give you complete beauty makeovers at special prices</p>
+            </div>
+            <div class="packages-grid">
+                <div class="package-card featured">
+                    <div class="package-badge">Most Popular</div>
+                    <h3>Bridal Package</h3>
+                    <div class="package-price">
+                        <span class="price">₹20,000</span>
+                        <span class="original-price">₹30,000</span>
+                    </div>
+                    <p class="package-desc">Complete bridal beauty transformation for your special day</p>
+                    <ul class="package-list">
+                        <li>Pre-bridal consultation & trial</li>
+                        <li>Bridal makeup & hairstyling</li>
+                        <li>Facial treatment (3 sessions)</li>
+                        <li>Full body waxing & polishing</li>
+                        <li>Manicure & pedicure with nail art</li>
+                        <li>Complimentary touch-up kit</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="package-card">
+                    <h3>Glow & Shine</h3>
+                    <div class="package-price">
+                        <span class="price">₹10,000</span>
+                        <span class="original-price">₹15,000</span>
+                    </div>
+                    <p class="package-desc">Perfect for special occasions and parties</p>
+                    <ul class="package-list">
+                        <li>Deep cleansing facial</li>
+                        <li>Party makeup</li>
+                        <li>Hair styling</li>
+                        <li>Manicure & pedicure</li>
+                        <li>Upper body waxing</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                </div>
+                <div class="package-card">
+                    <h3>Relaxation Retreat</h3>
+                    <div class="package-price">
+                        <span class="price">₹12,000</span>
+                        <span class="original-price">₹18,000</span>
+                    </div>
+                    <p class="package-desc">Ultimate spa experience for complete rejuvenation</p>
+                    <ul class="package-list">
+                        <li>Full body massage (90 min)</li>
+                        <li>Hydrating facial</li>
+                        <li>Body scrub & polishing</li>
+                        <li>Hair spa treatment</li>
+                        <li>Aromatherapy session</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Gallery</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Take a visual tour of our stunning transformations and luxurious salon ambiance. Click any image to view in full size.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&h=400&fit=crop" alt="Hair Styling">
+                    <div class="gallery-overlay">
+                        <p>Hair Styling</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&h=400&fit=crop" alt="Facial Treatment">
+                    <div class="gallery-overlay">
+                        <p>Facial Treatment</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&h=400&fit=crop" alt="Bridal Makeup">
+                    <div class="gallery-overlay">
+                        <p>Bridal Makeup</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=400&fit=crop" alt="Nail Art">
+                    <div class="gallery-overlay">
+                        <p>Nail Art</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=400&fit=crop" alt="Spa Treatment">
+                    <div class="gallery-overlay">
+                        <p>Spa Treatment</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&h=400&fit=crop" alt="Salon Interior">
+                    <div class="gallery-overlay">
+                        <p>Salon Interior</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card active">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Absolutely amazing experience! The staff is incredibly professional and the ambiance is so relaxing. My bridal makeup was absolutely flawless and lasted throughout my entire wedding day. I received so many compliments! The team took the time to understand exactly what I wanted and exceeded all my expectations. I couldn't have asked for a better experience on my special day!"</p>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Sarah Johnson" class="client-avatar">
+                        <div>
+                            <h4>Sarah Johnson</h4>
+                            <p>Bride</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Best facial treatment I've ever had! My skin feels incredibly fresh, rejuvenated, and glowing. The esthetician was knowledgeable and explained each step of the process. She recommended products perfect for my skin type. I've been coming here monthly for the past year, and the improvement in my skin texture and tone has been remarkable. Highly recommend to anyone looking for professional skincare!"</p>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Emily Davis" class="client-avatar">
+                        <div>
+                            <h4>Emily Davis</h4>
+                            <p>Regular Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The hair styling service is absolutely top-notch! My stylist listened carefully to what I wanted and offered expert advice on what would suit my face shape and lifestyle. The color came out exactly as I envisioned, and the cut is so easy to maintain. I've received countless compliments on my new look. The salon uses high-quality products, and you can really tell the difference. I'm a client for life!"</p>
+                    <div class="client-info">
+                        <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Jessica Brown" class="client-avatar">
+                        <div>
+                            <h4>Jessica Brown</h4>
+                            <p>Fashion Blogger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn" id="prevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-dots" id="sliderDots"></div>
+                <button class="slider-btn next-btn" id="nextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Find answers to common questions about our services and policies</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do I need to book an appointment in advance?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While walk-ins are welcome, we highly recommend booking an appointment in advance to ensure availability and minimize wait times. You can book online through our contact form, call us directly, or visit our salon. For bridal packages and special treatments, advance booking is mandatory.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What products do you use?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We exclusively use premium, dermatologically-tested products from internationally renowned brands. All our products are carefully selected for their quality, safety, and effectiveness. We also offer organic and natural product options for clients with sensitive skin or specific preferences.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does a typical facial treatment take?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A standard facial treatment typically takes 60-75 minutes, including consultation, cleansing, exfoliation, massage, mask application, and moisturizing. Specialized treatments like anti-aging or deep cleansing facials may take up to 90 minutes. We recommend arriving 10 minutes early for your first visit to complete any necessary paperwork.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your cancellation policy?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We understand that plans change. Please notify us at least 24 hours in advance if you need to cancel or reschedule your appointment. Late cancellations or no-shows may be subject to a cancellation fee. For bridal packages, we require 48 hours notice for cancellations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are your services suitable for sensitive skin?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We offer specialized treatments and products specifically designed for sensitive skin. During your consultation, please inform our specialists about any skin sensitivities, allergies, or concerns. We can perform patch tests before treatments and customize our services to ensure your comfort and safety.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer gift certificates?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Gift certificates are available for any amount or specific service. They make perfect gifts for birthdays, anniversaries, Mother's Day, or any special occasion. Gift certificates are valid for one year from the date of purchase and can be used for any of our services or packages.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Book your appointment today and experience the Elegance difference. We're here to answer your questions and help you choose the perfect treatments for your beauty goals.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Visit Us</h3>
+                        <p>123 Beauty Street<br>Downtown, City 12345</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>+1 (555) 123-4567<br>+1 (555) 987-6543</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>info@elegancebeauty.com<br>booking@elegancebeauty.com</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Working Hours</h3>
+                        <p>Mon - Sat: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" required>
+                            <label for="phone">Phone Number</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="">Select Service</option>
+                                <option value="hair">Hair Styling</option>
+                                <option value="facial">Facial Treatment</option>
+                                <option value="manicure">Manicure & Pedicure</option>
+                                <option value="makeup">Makeup</option>
+                                <option value="skincare">Skin Care</option>
+                                <option value="body">Body Treatment</option>
+                            </select>
+                           
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="4" required></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-calendar-check"></i>
+                                Book Appointment
+                            </button>
+                            <button type="button" class="btn btn-whatsapp" id="whatsappBtn">
+                                <i class="fab fa-whatsapp"></i>
+                                Book via WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-spa"></i> Elegance</h3>
+                    <p>Your trusted beauty partner for over a decade. We're dedicated to bringing out your natural beauty through expert care, premium products, and personalized service. Experience the art of beauty with us and discover why our clients keep coming back.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Hair Styling</a></li>
+                        <li><a href="#services">Facial Treatments</a></li>
+                        <li><a href="#services">Makeup</a></li>
+                        <li><a href="#services">Body Treatments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for beauty tips and special offers</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Elegance Beauty Parlour. All rights reserved.</p>
+                <p>Designed by <a href="https://www.asetechnologies.in">@asetechnologies</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
