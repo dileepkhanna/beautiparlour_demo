@@ -556,7 +556,7 @@ body[data-theme="dark"] .stat-label {
 /* Navigation */
 .navbar {
     position: fixed;
-    top: 44px;
+    
     width: 100%;
     background: var(--light-color);
     box-shadow: var(--shadow);
@@ -583,6 +583,7 @@ body[data-theme="dark"] .stat-label {
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--primary-color);
+    flex-shrink: 0;
 }
 
 .logo i {
@@ -595,7 +596,9 @@ body[data-theme="dark"] .stat-label {
     list-style: none;
     gap: 2rem;
     margin-left: auto;
+    margin-right: 0;
     align-items: center;
+    padding: 0;
 }
 
 .nav-link {
@@ -630,6 +633,7 @@ body[data-theme="dark"] .stat-label {
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
+    margin-left: 20px;
 }
 
 .hamburger span {
